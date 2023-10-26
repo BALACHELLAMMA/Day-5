@@ -16,8 +16,7 @@ function replaceTemplateString(inputString, replacementArray) {
         console.error("Invalid replacement array");
         return false;
     }
-    
-    
+     
     
     for (const [placeholder, value] of replacementArray) {
     
