@@ -24,6 +24,10 @@ function encode(inputString,shiftingCount){
         console.error("Enter valid shifting count")
         return false;
     }
+    else if((shiftingCount - Math.floor(shiftingCount)) !== 0){
+        console.error("floating numbers not accepted");
+        return false;
+    }
 
     let result='';
     inputString= inputString.toLowerCase();
@@ -73,6 +77,10 @@ function decode(inputString,shiftingCount){
         console.error("Enter valid shifting count")
         return false;
     }
+    else if((shiftingCount - Math.floor(shiftingCount)) !== 0){
+        console.error("floating numbers not accepted");
+        return false;
+    }
 
     let result='';
     inputString= inputString.toLowerCase();
@@ -119,9 +127,13 @@ function decode(inputString,shiftingCount){
 // console.log(decode("arokiya",4));
 // console.log(encode("arun",0));
 // console.log(encode("arun",-1));
-
-
-
+// console.log(encode("arun",4.5));
+// console.log(encode("arun",true));
+// console.log(encode("arun","hello"));
+// console.log(encode("",2));
+// console.log(encode(true,2));
+// console.log(encode(1,2));
+console.log(encode('a',2));
 
 // ========= encode or decode as "boolean"
 // function encodeOrDecodeString(inputString,shiftingCount,isEncode){
