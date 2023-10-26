@@ -12,8 +12,10 @@ function findSumOfSmallestAndLargestInArray(inputArray){
 
      
     inputArray.sort((a,b)=>(a-b));
+    
     let newArray = inputArray.filter(element => typeof element=='number')
     let result = newArray[0] + newArray[newArray.length-1];
+    
     return result;
 }
 

@@ -30,7 +30,7 @@ function encode(inputString,shiftingCount){
     }
 
     let result='';
-    inputString= inputString.toLowerCase();
+    
 
     for (let index = 0; index < inputString.length; index++){
          
@@ -39,17 +39,25 @@ function encode(inputString,shiftingCount){
         
         let shiftIndex;
 
-        //char is 'z' , then we dont need to shift
-        if (currentCharacterASCII !==122) {
-
-          shiftIndex = currentCharacterASCII + shiftingCount;
+         //lowercase alphabet check
+         if (currentCharacterASCII>=97 && currentCharacterASCII<=122 ) {
+            shiftIndex = currentCharacterASCII + shiftingCount;
+            
+            //only include alphabets
+            if( !(shiftIndex>=97) || !(shiftIndex<=122) ) {
+                shiftIndex = currentCharacterASCII;
+            }
           
-          //only include alphabets
-          if( (!shiftIndex>=97) || !(shiftIndex<=122) ) {
-              shiftIndex = currentCharacterASCII;
+          } 
+          else if(currentCharacterASCII>=65 && currentCharacterASCII<=90) { 
+            //Uppercase alphabet check
+            shiftIndex = currentCharacterASCII + shiftingCount;
+            
+            //only include alphabets
+            if( !(shiftIndex>=65) || !(shiftIndex<=90) ) {
+                shiftIndex = currentCharacterASCII;
+            }
           }
-
-        }
         else{
             shiftIndex = currentCharacterASCII;
         }
@@ -83,7 +91,7 @@ function decode(inputString,shiftingCount){
     }
 
     let result='';
-    inputString= inputString.toLowerCase();
+    // inputString= inputString.toLowerCase();
 
 
     for (let index = 0; index < inputString.length; index++){
@@ -93,14 +101,24 @@ function decode(inputString,shiftingCount){
 
         let shiftIndex;
 
-        //char is 'z' , then we dont need to shift
-        if (currentCharacterASCII!=97 ) {
+        //lowercase alphabet check
+        if (currentCharacterASCII>=97 && currentCharacterASCII<=122 ) {
           shiftIndex = currentCharacterASCII - shiftingCount;
           
           //only include alphabets
-          if( (!shiftIndex>=97) || !(shiftIndex<=122) ) {
+          if( !(shiftIndex>=97) || !(shiftIndex<=122) ) {
               shiftIndex = currentCharacterASCII;
-            }
+          }
+        
+        } 
+        else if(currentCharacterASCII>=65 && currentCharacterASCII<=90) { 
+          //Uppercase alphabet check
+          shiftIndex = currentCharacterASCII - shiftingCount;
+          
+          //only include alphabets
+          if( !(shiftIndex>=65) || !(shiftIndex<=90) ) {
+              shiftIndex = currentCharacterASCII;
+          }
         }
         else{
             shiftIndex = currentCharacterASCII;
@@ -124,7 +142,13 @@ function decode(inputString,shiftingCount){
 // console.log(encode("yalini",2));
 // console.log(decode("anu",2));
 // console.log(decode("Aara",2));
+// console.log(encode("Riya",2));
 // console.log(decode("arokiya",4));
+
+// console.log(encode("a1mirtha",2)); //string consists any numbers or symbols
+// console.log(decode("a#mirtha",2));
+
+
 // console.log(encode("arun",0));
 // console.log(encode("arun",-1));
 // console.log(encode("arun",4.5));
@@ -133,7 +157,7 @@ function decode(inputString,shiftingCount){
 // console.log(encode("",2));
 // console.log(encode(true,2));
 // console.log(encode(1,2));
-console.log(encode('a',2));
+// console.log(encode('a',2));
 
 // ========= encode or decode as "boolean"
 // function encodeOrDecodeString(inputString,shiftingCount,isEncode){
