@@ -27,10 +27,10 @@ function replaceTemplateString(inputString, replacementArray) {
     return inputString;
   }
   
-const inputString = "Numentica is a company focused on delivering high quality code. It is located in #[location] #[state] #[phone]";
-const replacements = [["location", "Chennai"], ["state", "Tamil Nadu"], ["phone", "9840164723"]];
+const inputString = "Numentica is a company focused on delivering high quality code. It is located in #[arun] #[state] #[phone]";
+const replacements = [["arun", "Dubai"], ["state", "Tamil Nadu"], ["phone", "9840164723"]];
 
-// console.log(replaceTemplateString(inputString,replacements));
+console.log(replaceTemplateString(inputString,replacements));
 
 // console.log(replaceTemplateString(inputString,[["location", "Chennai"]]))
 // console.log(replaceTemplateString(inputString,[["state", "Tamil Nadu"]]))

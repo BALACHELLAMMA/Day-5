@@ -12,9 +12,9 @@ function groupMultiples(inputArray){
     }
     
     //remove if it is not a type of 'number'
-    let newArray = inputArray.filter(element => typeof element=='number');
+    const newArray = inputArray.filter(element => typeof element=='number');
 
-    let result = {};
+    const result = {};
     
     for (let index = 1; index <= 10; index++) {
        result[index] = newArray.filter(element => element % index === 0);
@@ -23,7 +23,7 @@ function groupMultiples(inputArray){
     return result;
 }
 
-let inputArray = [34,12,10,15,7,21,81];
+const inputArray = [34,12,10,15,7,21,81];
 
 console.log(groupMultiples(inputArray));
 // console.log(groupMultiples([]));

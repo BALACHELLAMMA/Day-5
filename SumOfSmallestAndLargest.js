@@ -19,9 +19,9 @@ function findSumOfSmallestAndLargestInArray(inputArray){
     return result;
 }
 
-const inputArray = [45, 2, 25, 11, 16] ;
+const inputArray = [45, 2, 25, 11, 16, 0] ;
 
-// console.log(findSumOfSmallestAndLargestInArray(inputArray));
+console.log(findSumOfSmallestAndLargestInArray(inputArray));
 // console.log(findSumOfSmallestAndLargestInArray([]));
 // console.log(findSumOfSmallestAndLargestInArray([1,9]));
 // console.log(findSumOfSmallestAndLargestInArray([12.5,7, -2, 10,  12,  9, 0, 'a', true, false,
