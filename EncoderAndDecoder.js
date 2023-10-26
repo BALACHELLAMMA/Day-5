@@ -7,138 +7,165 @@
 // decode(“ctwp”, 2) -> arun
 // decode(“evyr”, 4) -> arun
 
-function encode(inputString,shiftingCount){
+// function encode(inputString,shiftingCount){
     
-    if ( typeof inputString!=='string' || !inputString ) {
-        console.error("Invalid string");
-        return false;
-    }
+//     if ( typeof inputString!=='string' || !inputString ) {
+//         console.error("Invalid string");
+//         return false;
+//     }
 
-    if( typeof shiftingCount!='number') {
-        console.error('Invalid shifting Count');
-        return false;
-    }
+//     if( typeof shiftingCount!='number') {
+//         console.error('Invalid shifting Count');
+//         return false;
+//     }
 
-    //shifitingCount is zero , then return the same inputArray
-    if(shiftingCount<=0) {
-        console.error("Enter valid shifting count")
-        return false;
-    }
-    else if((shiftingCount - Math.floor(shiftingCount)) !== 0){
-        console.error("floating numbers not accepted");
-        return false;
-    }
+//     //shifitingCount is zero , then return the same inputArray
+//     if(shiftingCount<=0) {
+//         console.error("Enter valid shifting count")
+//         return false;
+//     }
+//     else if((shiftingCount - Math.floor(shiftingCount)) !== 0){
+//         console.error("floating numbers not accepted");
+//         return false;
+//     }
 
-    let result='';
+//     let result='';
     
 
-    for (let index = 0; index < inputString.length; index++){
+//     for (let index = 0; index < inputString.length; index++){
          
-        //string character into ASCII
-        let currentCharacterASCII = inputString.codePointAt(index);
+//         //string character into ASCII
+//         let currentCharacterASCII = inputString.codePointAt(index);
         
-        let shiftIndex;
+//         let shiftIndex;
 
-         //lowercase alphabet check
-         if (currentCharacterASCII>=97 && currentCharacterASCII<=122 ) {
-            shiftIndex = currentCharacterASCII + shiftingCount;
+//          //lowercase alphabet check
+//          if (currentCharacterASCII>=97 && currentCharacterASCII<=122 ) {
+//             shiftIndex = currentCharacterASCII + shiftingCount;
             
-            //only include alphabets
-            if( !(shiftIndex>=97) || !(shiftIndex<=122) ) {
-                shiftIndex = currentCharacterASCII;
-            }
+//             //only include alphabets
+//             if( !(shiftIndex>=97) || !(shiftIndex<=122) ) {
+//                 shiftIndex = currentCharacterASCII;
+//             }
           
-          } 
-          else if(currentCharacterASCII>=65 && currentCharacterASCII<=90) { 
-            //Uppercase alphabet check
-            shiftIndex = currentCharacterASCII + shiftingCount;
+//           } 
+//           else if(currentCharacterASCII>=65 && currentCharacterASCII<=90) { 
+//             //Uppercase alphabet check
+//             shiftIndex = currentCharacterASCII + shiftingCount;
             
-            //only include alphabets
-            if( !(shiftIndex>=65) || !(shiftIndex<=90) ) {
-                shiftIndex = currentCharacterASCII;
-            }
-          }
-        else{
-            shiftIndex = currentCharacterASCII;
-        }
-        //ASCII to string and store
-        result+=(String.fromCharCode(shiftIndex));
-    }
+//             //only include alphabets
+//             if( !(shiftIndex>=65) || !(shiftIndex<=90) ) {
+//                 shiftIndex = currentCharacterASCII;
+//             }
+//           }
+//         else{
+//             shiftIndex = currentCharacterASCII;
+//         }
+//         //ASCII to string and store
+//         result+=(String.fromCharCode(shiftIndex));
+//     }
 
-    return result;
-}
+//     return result;
+// }
 
-function decode(inputString,shiftingCount){
+// function decode(inputString,shiftingCount){
     
-    if ( typeof inputString!=='string' || !inputString ) {
-        console.error("Invalid string");
-        return false;
-    }
+//     if ( typeof inputString!=='string' || !inputString ) {
+//         console.error("Invalid string");
+//         return false;
+//     }
 
-    if( typeof shiftingCount!='number') {
-        console.error('Invalid shifting Count');
-        return false;
-    }
+//     if( typeof shiftingCount!='number') {
+//         console.error('Invalid shifting Count');
+//         return false;
+//     }
 
-    //shifitingCount is zero , then return the same inputArray
-    if(shiftingCount<=0) {
-        console.error("Enter valid shifting count")
-        return false;
-    }
-    else if((shiftingCount - Math.floor(shiftingCount)) !== 0){
-        console.error("floating numbers not accepted");
-        return false;
-    }
+//     //shifitingCount is zero , then return the same inputArray
+//     if(shiftingCount<=0) {
+//         console.error("Enter valid shifting count")
+//         return false;
+//     }
+//     else if((shiftingCount - Math.floor(shiftingCount)) !== 0){
+//         console.error("floating numbers not accepted");
+//         return false;
+//     }
 
-    let result='';
-    // inputString= inputString.toLowerCase();
+//     let result='';
+//     // inputString= inputString.toLowerCase();
 
 
-    for (let index = 0; index < inputString.length; index++){
+//     for (let index = 0; index < inputString.length; index++){
          
-        //string character into ASCII
-        let currentCharacterASCII = inputString.codePointAt(index);
+//         //string character into ASCII
+//         let currentCharacterASCII = inputString.codePointAt(index);
 
-        let shiftIndex;
+//         let shiftIndex;
 
-        //lowercase alphabet check
-        if (currentCharacterASCII>=97 && currentCharacterASCII<=122 ) {
-          shiftIndex = currentCharacterASCII - shiftingCount;
+//         //lowercase alphabet check
+//         if (currentCharacterASCII>=97 && currentCharacterASCII<=122 ) {
+//           shiftIndex = currentCharacterASCII - shiftingCount;
           
-          //only include alphabets
-          if( !(shiftIndex>=97) || !(shiftIndex<=122) ) {
-              shiftIndex = currentCharacterASCII;
-          }
+//           //only include alphabets
+//           if( !(shiftIndex>=97) || !(shiftIndex<=122) ) {
+//               shiftIndex = currentCharacterASCII;
+//           }
         
-        } 
-        else if(currentCharacterASCII>=65 && currentCharacterASCII<=90) { 
-          //Uppercase alphabet check
-          shiftIndex = currentCharacterASCII - shiftingCount;
+//         } 
+//         else if(currentCharacterASCII>=65 && currentCharacterASCII<=90) { 
+//           //Uppercase alphabet check
+//           shiftIndex = currentCharacterASCII - shiftingCount;
           
-          //only include alphabets
-          if( !(shiftIndex>=65) || !(shiftIndex<=90) ) {
-              shiftIndex = currentCharacterASCII;
-          }
-        }
-        else{
-            shiftIndex = currentCharacterASCII;
-        }
+//           //only include alphabets
+//           if( !(shiftIndex>=65) || !(shiftIndex<=90) ) {
+//               shiftIndex = currentCharacterASCII;
+//           }
+//         }
+//         else{
+//             shiftIndex = currentCharacterASCII;
+//         }
         
-        //ASCII to string and store
-        result+=(String.fromCharCode(shiftIndex));
-    }
+//         //ASCII to string and store
+//         result+=(String.fromCharCode(shiftIndex));
+//     }
     
-    return result;
-}
+//     return result;
+// }
 
+function encode(input, shift) {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    let encoded = '';
+  
+    for (let i = 0; i < input.length; i++) {
+      const char = input[i];
+      if (char.match(/[a-z]/i)) {
+        const isUpperCase = char === char.toUpperCase();
+        const index = alphabet.indexOf(char.toLowerCase());
+        const newIndex = (index + shift) % alphabet.length;
+        const newChar = isUpperCase
+          ? alphabet[newIndex].toUpperCase()
+          : alphabet[newIndex];
+        encoded += newChar;
+      } else {
+        encoded += char;
+      }
+    }
+  
+    return encoded;
+  }
+  
+  function decode(encoded, shift) {
+    return encode(encoded, -shift);
+  }
+  
+         
 
-// console.log(encode("arun",2));
+// console.log(encode("arun",28));
 // console.log(encode("arun", 4));
 // console.log(decode("ctwp",2));
 // console.log(decode("evyr", 4));
 
 
-// console.log(encode("zara",2));
+console.log(encode("zara",2));
 // console.log(encode("yalini",2));
 // console.log(decode("anu",2));
 // console.log(decode("Aara",2));
