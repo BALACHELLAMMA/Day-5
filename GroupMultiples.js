@@ -16,11 +16,15 @@ function groupMultiples(inputArray){
 
     const result = {};
     
+    
     for (let index = 1; index <= 10; index++) {
        result[index] = newArray.filter(element => element % index === 0);
     }
-    
-    return result;
+         
+    //filter non-empty values from the object
+    const filteredResult = Object.entries(result).filter(([key, value]) => value.length !== 0);
+      
+    return filteredResult;
 }
 
 const inputArray = [34,12,10,15,7,21,81];
