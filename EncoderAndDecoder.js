@@ -150,7 +150,7 @@ function encode(inputString, shiftCount) {
 
         //to get the index of the shifted alphabet a
         //using modulo , keep the shifted index inside a range
-        const newIndex = (alphabetIndex - shiftCount) % alphabetArray.length;
+        const newIndex = (alphabetIndex + shiftCount) % alphabetArray.length;
 
         //if it's in uppercase , then it's shifted character also be in uppercase
         // to handle -negative when decoding , at() is used.
@@ -169,9 +169,9 @@ function encode(inputString, shiftCount) {
     return resultString;
   }
   
-  // function decode(inputString, shiftCount) {
-  //   return encode(inputString, -shiftCount);
-  // }
+  function decode(inputString, shiftCount) {
+    return encode(inputString, -shiftCount);
+  }
   
          
 
@@ -182,7 +182,7 @@ function encode(inputString, shiftCount) {
 
 
 // console.log(encode("zara",2));
-console.log(encode("arun",2));
+console.log(decode("arun",2));
 // console.log(encode("yalini",2));
 // console.log(decode("anu",2));
 // console.log(decode("Aara",2));
