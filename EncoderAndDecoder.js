@@ -133,7 +133,8 @@
 
 function encode(inputString, shiftCount) {
 
-    const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
+    const alphabetArray = ['a','b','c','d','e','f','g','h','i','j',
+    'k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     let resultString = '';
   
     for ( let index = 0; index < inputString.length; index++ ) {
@@ -145,16 +146,18 @@ function encode(inputString, shiftCount) {
 
         const isUpperCase = currentCharacter === currentCharacter.toUpperCase();
 
-        const alphabetIndex = alphabetString.indexOf(currentCharacter.toLowerCase());
+        const alphabetIndex = alphabetArray.indexOf(currentCharacter.toLowerCase());
 
         //to get the index of the shifted alphabet a
         //using modulo , keep the shifted index inside a range
-        const newIndex = Math.abs((alphabetIndex + shiftCount) % alphabetString.length);
+        const newIndex = (alphabetIndex - shiftCount) % alphabetArray.length;
 
         //if it's in uppercase , then it's shifted character also be in uppercase
+        // to handle -negative when decoding , at() is used.
+        //at() - only works for array
         const newCharacter = isUpperCase
-          ? alphabetString[newIndex].toUpperCase()
-          : alphabetString[newIndex];
+          ? alphabetArray.at(newIndex).toUpperCase()
+          : alphabetArray.at(newIndex);
         
           resultString += newCharacter;
       }
@@ -166,9 +169,9 @@ function encode(inputString, shiftCount) {
     return resultString;
   }
   
-  function decode(inputString, shiftCount) {
-    return encode(inputString, -shiftCount);
-  }
+  // function decode(inputString, shiftCount) {
+  //   return encode(inputString, -shiftCount);
+  // }
   
          
 
@@ -179,7 +182,7 @@ function encode(inputString, shiftCount) {
 
 
 // console.log(encode("zara",2));
-console.log(decode("arun",2));
+console.log(encode("arun",2));
 // console.log(encode("yalini",2));
 // console.log(decode("anu",2));
 // console.log(decode("Aara",2));
