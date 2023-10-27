@@ -131,22 +131,26 @@
 //     return result;
 // }
 
-function encode(input, shift) {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+function encode(inputString, shiftCount) {
+
+    const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
     let encoded = '';
   
-    for (let i = 0; i < input.length; i++) {
-      const char = input[i];
-      if (char.match(/[a-z]/i)) {
-        const isUpperCase = char === char.toUpperCase();
-        const index = alphabet.indexOf(char.toLowerCase());
-        const newIndex = (index + shift) % alphabet.length;
-        const newChar = isUpperCase
-          ? alphabet[newIndex].toUpperCase()
-          : alphabet[newIndex];
-        encoded += newChar;
+    for ( let index = 0; index < inputString.length; index++ ) {
+
+      const currentCharacter = inputString[index];
+      
+      if (currentCharacter.match(/[a-z]/i)) {
+
+        const isUpperCase = currentCharacter === currentCharacter.toUpperCase();
+        const alphabetIndex = alphabetString.indexOf(currentCharacter.toLowerCase());
+        const newIndex = (alphabetIndex + shiftCount) % alphabetString.length;
+        const newCharacter = isUpperCase
+          ? alphabetString[newIndex].toUpperCase()
+          : alphabetString[newIndex];
+        encoded += newCharacter;
       } else {
-        encoded += char;
+        encoded += currentCharacter;
       }
     }
   
