@@ -50,25 +50,27 @@ function findMissingNumbersInArray(inputArray) {
 		return false;
 	}
 
-	inputArray.sort((a,b)=>(a-b));
+	//filtered out the numeric values
+	inputArray = inputArray.filter((element)=> typeof element==='number');
 
-	const newArray = inputArray.filter(element => typeof element=='number')
-
-	const mininumNumber = newArray[0];
-	const maximumNumber = newArray[newArray.length - 1];
+	const maximumValue = Math.max(...inputArray);
+	const minimumValue = Math.min(...inputArray);
 	const missingNumbers = [];
-  
-	for (let currentNumber = mininumNumber + 1; currentNumber <= maximumNumber; currentNumber++) {
-	  if (!newArray.includes(currentNumber)) {
-		missingNumbers.push(currentNumber);
-	  }
+
+	//traverse an inputarray and find the missing values 
+	for (let value=minimumValue; value<=maximumValue; value++){
+		//if it's not in inputarray , then add it to missingNumbers array
+		if (!inputArray.includes(value)){
+			missingNumbers.push(value);
+		}
 	}
+
   
 	return missingNumbers;
 }
 
 
-let inputArray = [7, 10, 12, 9]; //-20];
+let inputArray = [7, 10, 12, 9,true,'hello']; //-20];
 // console.log(findMissingNumberInArray(inputArray));
 
 console.log(findMissingNumbersInArray(inputArray));  // [] empty array
