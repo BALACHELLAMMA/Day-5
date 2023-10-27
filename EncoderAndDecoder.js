@@ -134,31 +134,40 @@
 function encode(inputString, shiftCount) {
 
     const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
-    let encoded = '';
+    let resultString = '';
   
     for ( let index = 0; index < inputString.length; index++ ) {
 
       const currentCharacter = inputString[index];
       
+      //check whether it's an alphabet (case-insensitive) using 'Regex' 
       if (currentCharacter.match(/[a-z]/i)) {
 
         const isUpperCase = currentCharacter === currentCharacter.toUpperCase();
+
         const alphabetIndex = alphabetString.indexOf(currentCharacter.toLowerCase());
-        const newIndex = (alphabetIndex + shiftCount) % alphabetString.length;
+
+        //to get the index of the shifted alphabet a
+        //using modulo , keep the shifted index inside a range
+        const newIndex = Math.abs((alphabetIndex + shiftCount) % alphabetString.length);
+
+        //if it's in uppercase , then it's shifted character also be in uppercase
         const newCharacter = isUpperCase
           ? alphabetString[newIndex].toUpperCase()
           : alphabetString[newIndex];
-        encoded += newCharacter;
-      } else {
-        encoded += currentCharacter;
+        
+          resultString += newCharacter;
+      }
+      else {
+        resultString += currentCharacter;
       }
     }
   
-    return encoded;
+    return resultString;
   }
   
-  function decode(encoded, shift) {
-    return encode(encoded, -shift);
+  function decode(inputString, shiftCount) {
+    return encode(inputString, -shiftCount);
   }
   
          
@@ -169,7 +178,8 @@ function encode(inputString, shiftCount) {
 // console.log(decode("evyr", 4));
 
 
-console.log(encode("zara",2));
+// console.log(encode("zara",2));
+console.log(decode("arun",2));
 // console.log(encode("yalini",2));
 // console.log(decode("anu",2));
 // console.log(decode("Aara",2));
